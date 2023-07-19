@@ -1,0 +1,17 @@
+.RockPaperScissor{
+    padding-bottom: 4rem;
+}
+.RockPaperScissor .title{
+    margin-top: 3rem;
+}
+.RockPaperScissor .container1{
+    margin-top: 15px;
+}
+.RockPaperScissor button{
+    text-transform: capitalize;
+    margin: 10px;
+    border-radius: 4px;
+}
+.RockPaperScissor p{
+    font-size: 20px;
+}

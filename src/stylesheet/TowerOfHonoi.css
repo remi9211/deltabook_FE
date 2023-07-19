@@ -1,0 +1,86 @@
+.TowerOfHonoi{
+    padding: 3rem 0rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.TowerOfHonoi .title{
+    font-style: italic;
+    font-weight: bold;
+}
+.TowerOfHonoi #currentMoves{
+    margin-top: 0;
+}
+.TowerOfHonoi .startButton{
+    margin-top: 1rem;
+}
+.TowerOfHonoi .container {
+    width: 42rem;
+    height: 17rem;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    border-bottom: 20px solid black;
+    border-radius: 20px;
+}
+.TowerOfHonoi .tower {
+    height: 14rem;
+    width: 1.1rem;
+    border-left: solid 3rem ;
+    border-right: solid 3rem ;
+    border-color: rgb(51, 50, 50);
+    background-color: rgb(0, 0, 0);
+    border-top-left-radius: 52px;
+    border-top-right-radius: 52px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: end;
+    align-items: center;
+    z-index: 1;
+}
+.tower:hover {
+    background-color: rgba(0, 0, 0, 0.678);
+}
+
+.TowerOfHonoi #tower1 {
+    margin-right: 6rem;
+}
+.TowerOfHonoi #tower3 {
+    margin-left: 6rem;
+}
+.disk {
+    border-radius: 20px;
+}
+#disk1 {
+    height: 25px;
+    width: 140px;
+    background-color: rgb(199, 6, 6);
+}
+#disk2 {
+    height: 25px;
+    width: 120px;
+    background-color: indigo;
+}
+#disk3 {
+    height: 25px;
+    width: 100px;
+    background-color: rgb(7, 7, 190);
+}
+#disk4 {
+    height: 25px;
+    width: 80px;
+    background-color: rgb(2, 131, 2);
+}
+#disk5 {
+    height: 25px;
+    width: 60px;
+    background-color: rgb(190, 205, 50);
+}
+#disk6 {
+    height: 25px;
+    width: 40px;
+    background-color: orange;
+}
+#tower111{
+    display:inline
+}

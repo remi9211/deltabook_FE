@@ -1,0 +1,64 @@
+.TicTacToe{
+    padding: 2rem 0rem;
+}
+.TicTacToe .title{
+    margin-bottom: 0px;
+    font-style: italic;
+    font-weight: bold;
+}    
+.TicTacToe .gameContainer{ 
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.TicTacToe .container{
+    display: grid;
+    grid-template-rows: repeat(3, 10vw);
+    grid-template-columns: repeat(3, 10vw);
+    position: relative;
+    justify-content: center;            
+}
+
+.TicTacToe .box{
+    border: 2px solid #C0C0C0;
+    background-color: rgba(29, 15, 15, 0.274);
+    font-size: 6vw;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.TicTacToe .box:hover{
+    background-color: #191919;
+}
+
+.TicTacToe .info {
+    font-size: 28px;
+    color:whitesmoke;
+}
+.TicTacToe .player {
+    text-align: center;
+}
+.TicTacToe .gameInfo{
+    padding: 30px 34px;
+    text-align: center;
+}
+.TicTacToe .btn{
+    margin-top: 4px;
+    cursor: pointer;
+}
+.TicTacToe .line{
+    background-color: black;
+    height: 3px;
+    width: 0;
+    position: absolute;
+    background-color: #911d91;
+    transition: width 0.3s ease-in-out;
+    text-align:center;
+}
+.TicTacToe .boxtext{
+    color: white;
+    background-color: transparent;
+}
