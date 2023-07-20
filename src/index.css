@@ -23,6 +23,7 @@ button {
   background-color: #1528cf;
   color: wheat;
   cursor: pointer;
+  margin: 10px;
 }
 button:hover {
   background-color: rgb(12, 81, 146);

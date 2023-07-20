@@ -4,35 +4,19 @@ import RockPaperScissor from './components/RockPaperScissor'
 import TicTacToe from './components/TicTacToe'
 import Navbar from './components/Navbar'
 import './App.css'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Navbar />,
-  },
-  {
-    path: "TowerOfHanoi",
-    element: <TowerOfHanoi />,
-  },
-  {
-    path: "TicTacToe",
-    element: <TicTacToe />,
-  },
-  {
-    path: "RockPaperScissor",
-    element: <RockPaperScissor />,
-  },
-]);
+import {Route, Routes,} from "react-router-dom";
+import Home from "./components/Home";
 
 function App() {
   return (
     <>
-      <RouterProvider router={router}>
-      </RouterProvider>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/TicTacToe" element={<TicTacToe/>} />
+        <Route path="/RockPaperScissor" element={<RockPaperScissor/>} />
+        <Route path="/TowerOfHanoi" element={<TowerOfHanoi/>} />
+      </Routes>
     </>
   )
 }

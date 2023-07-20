@@ -21,7 +21,7 @@
 }
 
 .TicTacToe .box{
-    border: 2px solid #C0C0C0;
+    border: 1px solid #C0C0C0;
     background-color: rgba(29, 15, 15, 0.274);
     font-size: 6vw;
     cursor: pointer;

@@ -2,26 +2,54 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const navStyle = {
+    background: "#333",
+    color: "#fff",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: "1rem",
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
+  };
+
+  const linkStyle = {
+    color: "#fff",
+    textDecoration: "none",
+    padding: "0.5rem 1rem",
+    borderRadius: "4px",
+    transition: "background-color 0.3s ease-in-out",
+  };
+
+  const hoverStyle = {
+    backgroundcolor: "blue",
+  };
+
   return (
-    <>
-        Home Page
-    <nav>
-      <ul>
+    <nav style={navStyle}>
+      <h1 style={{ margin: 0 }}>My App</h1>
+      <ul style={{ listStyle: "none", display: "flex" }}>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" style={linkStyle} >
+            Home
+          </Link>
         </li>
         <li>
-          <Link to="/TowerOfHanoi">Tower Of Hanoi</Link>
+          <Link to="/TowerOfHanoi" style={linkStyle} >
+            Tower Of Hanoi
+          </Link>
         </li>
         <li>
-          <Link to="/TicTacToe">Tic Tac Toe</Link>
+          <Link to="/TicTacToe" style={linkStyle} >
+            Tic Tac Toe
+          </Link>
         </li>
         <li>
-          <Link to="/RockPaperScissor">Rock Paper Scissors</Link>
+          <Link to="/RockPaperScissor" style={linkStyle} >
+            Rock Paper Scissors
+          </Link>
         </li>
       </ul>
     </nav>
-    </>
   );
 };
 
