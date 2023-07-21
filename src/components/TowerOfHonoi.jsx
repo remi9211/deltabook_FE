@@ -17,7 +17,7 @@ function Disk({ id, isDraggable }) {
 }
 
 function TowerOfHonoi() {
-  const numOfDisks = 4;
+  const numOfDisks = 6;
   const [currentMoves, setCurrentMoves] = useState(0);
   const minimumMoves = Math.pow(2, numOfDisks) - 1;
 

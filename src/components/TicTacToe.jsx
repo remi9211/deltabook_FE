@@ -39,7 +39,7 @@ const TicTacToe = () => {
           } else {
             handleReset();
           }
-        }, 400);
+        }, 40);
       }
     });
   };
