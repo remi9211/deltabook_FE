@@ -1,47 +1,54 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import Feed from './Feed'
 import { Link } from 'react-router-dom'
+import { useQuery, useMutation } from 'react-query'
 
 const Feeds = () => {
     const [feedsArr, setFeedsArr] = useState([])
-    useEffect(() => {
+    useQuery('feeds', async () => {
+        const resp = await axios.get(`${import.meta.env.VITE_API_URL}/api/v1/feeds.json`)
+        return resp.data
+    }, {
+        onSuccess: (data) => {
+            setFeedsArr(data)
+        }
+    })
 
-        axios.get('http://127.0.0.1:3000/api/v1/feeds.json')
-            .then(resp => {
-                setFeedsArr(resp.data)
-                console.log(resp.data)
-            })
-            .catch(resp => console.log(resp))
-    }, [feedsArr.length])
+    const deleteFeed = useMutation(async (id) => {
+        const resp = await axios.delete(`${import.meta.env.VITE_API_URL}/api/v1/feeds/${id}`)
+        return id
+    }, {
+        onSuccess: (data) => {
+            const newfeeds = feedsArr.filter(feed => feed.id !== data)
+            setFeedsArr(newfeeds)
+        }
+    })
 
     const handleDestroy = (id, e) => {
         e.preventDefault()
-        axios.delete(`http://127.0.0.1:3000/api/v1/feeds/${id}`)
-            .then(resp => {
-                const newfeeds = feedsArr.filter(feed => feed.id !== id)
-                setFeedsArr(newfeeds)
-            })
-            .catch(resp => console.log(resp))
+        deleteFeed.mutate(id)
     }
 
-    const grid = feedsArr.map(item => {
-        return (
-            <Feed
-                key={item.id}
-                attributes={item}
-                handleDestroy={handleDestroy}
-            />)
-    })
+    const grid = feedsArr.map((item, index) =>
+    (
+        <Feed
+            key={item.id}
+            attributes={item}
+            index={index}
+            handleDestroy={handleDestroy}
+        />)
+    )
 
     return (
         <div className='container-fluid'>
-            <div className="grid sm:grid-cols-12 grid-cols-6 gap-4">
+            <div className="grid lg:grid-cols-12 grid-cols-6 gap-4">
+
                 <div className="col-span-3">
                     <h5 className="text-center">Total Feeds: {feedsArr.length}</h5>
                 </div>
 
-                <div className="col-span-6">
+                <div className="col-span-6 lg:mx-0 mx-8">
                     <h3 className="text-center text-white text-4xl my-4 font-semibold">Showing All Feeds</h3>
                     {grid}
                     <div className="text-center my-4">

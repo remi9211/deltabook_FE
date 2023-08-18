@@ -35,15 +35,15 @@ export default function Navbar() {
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="h-8 w-auto"
-                    src="../public/vite.svg"
-                    alt="Your Company"
+                    src="/vite.svg"
+                    alt="Deltabook"
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => {
-                      if (item.hasOwnProperty('subitems'))
-                        return <Menu as='div' className="relative">
+                      return (item.hasOwnProperty('subitems')) ?
+                        <Menu as='div' key={item.name} className="relative">
                           <Menu.Button className={classNames(
                             item.current ? 'bg-zinc-900 text-white' : 'text-zinc-300 hover:bg-zinc-700 hover:text-white',
                             'rounded-md px-3 py-2 text-sm font-medium'
@@ -78,11 +78,8 @@ export default function Navbar() {
                               </Menu.Items>
                             </Transition>
                           </Menu.Button>
-
-
                         </Menu>
-                      else
-                        return <a
+                        : <a
                           key={item.name}
                           href={item.href}
                           className={classNames(
@@ -94,11 +91,10 @@ export default function Navbar() {
                           {item.name}
                         </a>
                     })}
-
-
                   </div>
                 </div>
               </div>
+
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
                   type="button"
@@ -108,7 +104,6 @@ export default function Navbar() {
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6 bg-zinc-800 text-zinc-400" aria-hidden="true" />
                 </button>
-
 
                 <Menu as="div" className="relative ml-3">
                   <div>
@@ -172,9 +167,8 @@ export default function Navbar() {
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {navigation.map((item) => {
-                return <Disclosure>
+                return <Disclosure key={item.name}>
                   <Disclosure.Button
-                    key={item.name}
                     as={item.hasOwnProperty('subitems') ? "div" : "a"}
                     href={item.href}
                     className={classNames(
@@ -214,62 +208,4 @@ export default function Navbar() {
     </Disclosure >
   )
 }
-// eslint-disable-next-line no-unused-vars
-
-const Navbar2 = () => {
-  const navStyle = {
-    background: "#333",
-    color: "#fff",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "1rem",
-    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
-  };
-
-  const linkStyle = {
-    color: "#fff",
-    textDecoration: "none",
-    padding: "0.5rem 1rem",
-    borderRadius: "4px",
-    transition: "background-color 0.3s ease-in-out",
-  };
-  return (
-    <nav style={navStyle}>
-      <h1 style={{ margin: 0 }}>My App</h1>
-      <ul style={{ listStyle: "none", display: "flex" }}>
-        <li>
-          <Link to="/" style={linkStyle} >
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link to="/TowerOfHanoi" style={linkStyle} >
-            Tower Of Hanoi
-          </Link>
-        </li>
-        <li>
-          <Link to="/TicTacToe" style={linkStyle} >
-            Tic Tac Toe
-          </Link>
-        </li>
-        <li>
-          <Link to="/RockPaperScissor" style={linkStyle} >
-            Rock Paper Scissors
-          </Link>
-        </li>
-        <li>
-          <Link to="/AddFriends" style={linkStyle} >
-            Add Friends
-          </Link>
-        </li>
-        <li>
-          <Link to="/Friends" style={linkStyle} >
-            Friends List
-          </Link>
-        </li>
-      </ul>
-    </nav>
-  );
-};
 
