@@ -5,7 +5,7 @@ import { Bars3Icon, BellIcon, XMarkIcon, ChevronDownIcon } from '@heroicons/reac
 const navigation = [
   { name: 'Home', href: '/', current: false },
   { name: 'Feeds', href: '#', current: false, subitems: [{ name: 'Show Feeds', href: '/feeds' }, { name: 'New Feed', href: '/feeds/new' }] },
-  { name: 'Games', href: '#', current: false },
+  { name: 'Friends', href: '/Friends', current: false },
 ]
 
 function classNames(...classes) {
@@ -14,7 +14,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
   return (
-    <Disclosure as="nav" className="bg-zinc-800">
+    <Disclosure as="nav" className="bg-zinc-800 sticky top-0 after:bg-black z-50 w-screen after:h-px after:w-full after:block">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
