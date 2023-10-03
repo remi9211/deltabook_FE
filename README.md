@@ -7,6 +7,8 @@
 * Run 'yarn' to install dependencies
 
 * To start the server run 'yarn dev' or 'npm run dev'
+  
+* run the following command for css: npx tailwindcss -i ./src/index.css -o ./dist/output.css --watch
 
 ## To add navigation to Navbar:
 
