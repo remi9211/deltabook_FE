@@ -21,7 +21,7 @@ const FormGame = (props) => {
                 <input
                     type="file"
                     className="text-zinc-900 w-full"
-                    accept=".jsx, .js, .html, .html.erb"
+                    accept=".jsx, .js, .html, .html.erb, .css"
                     multiple
                     name="file"
                 />

@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 import { useMutation, useQuery } from 'react-query';
 
 
-const Game = ({ temp }) => {
+const Game = () => {
     const [game, setGame] = useState({})
     const navigate = useNavigate()
     const params = useParams()

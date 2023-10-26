@@ -10,14 +10,15 @@ import ReactHtmlParser from 'react-html-parser';
 function sanitize(str) { return str.toString().replace(/"/g, '&quot;') };
 
 export default function RenderGame({ game }) {
+
     const data = sanitize(game);
     return (
         <>
             <div style={{ color: "white", }} dangerouslySetInnerHTML={{
                 __html:
                     `<iframe
-                    width = "1500px"
-                    title = "clicking-game"
+                    width = "1400px"
+                    title = "game"
                     srcdoc = "${data}"
                     onload = "
                     this.width = (this.contentWindow.document.body.scrollWidth).toString();

@@ -1,7 +1,7 @@
 import React from "react";
 import FormGame from "./Form";
 import { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link, useNavigate, redirect } from "react-router-dom";
 import axios from "axios";
 import { useQuery, useMutation } from "react-query";
 import { data } from "autoprefixer";
@@ -9,6 +9,7 @@ import { data } from "autoprefixer";
 const EditGame = () => {
     const [game, setGame] = useState({})
     const params = useParams()
+    const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
     const gameID = params.id
 
@@ -25,8 +26,11 @@ const EditGame = () => {
         axios.patch(`${import.meta.env.VITE_API_URL}/api/v1/projects/${id}`, { project: project })
             .then(response => {
                 setGame(project);
+                navigate(`/games/${gameID}`, { state: { title: game.title, description: game.description, id: game.id, url: game.url } });
             })
-            .catch(error => console.log(error));
+            .catch(error => console.log(error),
+                navigate(`/games/${gameID}`, { state: { title: game.title, description: game.description, id: game.id, url: game.url } }),
+            )
     };
 
     const handleChange = (e) => {

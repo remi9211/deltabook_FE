@@ -17,7 +17,6 @@ import Game from "./components/Game/Game";
 import EditGame from "./components/Game/Edit";
 import Friends from "./components/Friends.jsx"
 import AddFriends from "./components/AddFriends";
-import AddGame from "./components/AddGame";
 import NewGame from "./components/Game/New";
 import PlayGame from "./components/Game/Play";
 
@@ -44,7 +43,6 @@ function App() {
           <Route path="/TicTacToe" element={<TicTacToe />} />
           <Route path={"/Friends"} element={<Friends />} />
           <Route path={"/AddFriends"} element={<AddFriends />} />
-          <Route path={"/AddGame"} element={<AddGame />} />
         </Routes>
       </Sidebar>
     </QueryClientProvider>
